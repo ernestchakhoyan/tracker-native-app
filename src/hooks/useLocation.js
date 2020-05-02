@@ -12,9 +12,7 @@ export default (shouldTrack,callback) => {
                 accuracy: Accuracy.BestForNavigation,
                 timeInterval: 1000,
                 distanceInterval: 10
-            }, (location) => {
-                callback(location);
-            });
+            }, callback);
             setSubscriber(sub);
         }catch (e) {
             setError(e);
@@ -28,7 +26,7 @@ export default (shouldTrack,callback) => {
             subscriber.remove();
             setSubscriber(null);
         }
-    }, [shouldTrack])
+    }, [shouldTrack, callback])
 
     return [error];
 }
