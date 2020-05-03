@@ -9,6 +9,7 @@ import {
 } from "react-navigation";
 import { Text } from "react-native-elements";
 import { Context as LocationContext } from "../context/locationContext";
+// import { Context as TrackContext } from "../context/trackContext";
 import Map from "../components/Map";
 import TrackForm from "../components/TrackForm";
 import useLocation from "../hooks/useLocation";
@@ -21,7 +22,7 @@ function TrackCreateScreen({ isFocused }) {
         addLocation(location, recording);
     }, [recording])
 
-    const [ error ] = useLocation(isFocused, callback);
+    const [ error ] = useLocation(isFocused || recording, callback);
     return (
         <SafeAreaView forceInset={{ top: "always" }}>
             <Text h3>Track Create Screen</Text>
