@@ -9,11 +9,11 @@ import {
 } from "react-navigation";
 import { Text } from "react-native-elements";
 import { Context as LocationContext } from "../context/locationContext";
-// import { Context as TrackContext } from "../context/trackContext";
 import Map from "../components/Map";
 import TrackForm from "../components/TrackForm";
 import useLocation from "../hooks/useLocation";
-import "../_mockLocation";
+import {FontAwesome} from "@expo/vector-icons";
+// import "../_mockLocation";
 
 function TrackCreateScreen({ isFocused }) {
     const { state: { recording, locations }, addLocation } = useContext(LocationContext);
@@ -31,6 +31,13 @@ function TrackCreateScreen({ isFocused }) {
             <TrackForm />
         </SafeAreaView>
     );
+}
+
+TrackCreateScreen.navigationOptions = () => {
+    return {
+        title: "Add track",
+        tabBarIcon: <FontAwesome name="plus" size={20} />
+    }
 }
 
 const styles = StyleSheet.create({
